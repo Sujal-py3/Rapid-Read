@@ -1,50 +1,30 @@
-# Book-Summarizer
-<b>NLP-based</b> book summarizer which summarises the book chapter-wise.<br>
-In case the book does not contain chapters: the entire book is summarized.
+**Book Summarizer**
 
-Why summarize a book?
-<ul>
-<li>The goal of writing a summary of an article, a single chapter or a whole book is to offer as accurately as possible the full sense of the original, but in a more condensed form. 
-<li>A summary restates the author's main point, purpose, intent and supporting details in your own words.
-</ul>
+Overview
 
-How does the summarizer work?
-<ul>
-<li>The summarizer is developed using <i><b>T5-small</b></i> pretrained model from <b>HuggingFace Transformers</b>.</li>
-<li>Chunks are created from individual chapters.</li> 
-<li>Then the chunks are tokenized using <i><b>T5Tokenizer</b></i>.</li>
-<li>The tokenized text is passed to <b><i>T5ForConditionalGeneration</i></b> model class, for summary-ids generation.</li> 
-<li>The summary-ids are decoded to text using <i>decode()<i> function from the <i><b>T5Tokenizer</b></i>.</li>
-</ul>
+The Book Summarizer is an NLP-based application that generates chapter-wise summaries of books. If a book does not contain distinct chapters, the entire book is summarized as a whole. This tool is designed to provide concise and meaningful summaries while preserving the key ideas and intent of the original text.
 
-How to run the book summarizer:
-<ol>
-<li>Clone the repository.</li>
-  
-```
-git clone https://github.com/saarthdeshpande/book-summarizer.git
-```
+Why Summarize a Book?
 
-<li>Install all the dependencies mentioned in the <b>requirements.txt</b>.</li>
+Summarizing a book helps condense information while maintaining the original meaning.
 
-```
-pip install -r requirements.txt
-```
-<li>To run via CLI:</li>
+It enables quicker comprehension of complex ideas and concepts.
 
-```
-python3 bsCLI.py --path <path-to-PDF-file>
-```
-<li>To run on Flask server with frontend and mail:
-    <ol>
-        <li>Update the value of <b>sender_address</b> and <b>sender_pass</b> in <b>mail.py</b>.</li>
-        <li>Run <b>views.py</b>.</li>
+A summary captures the author’s main points, purpose, and supporting details in a structured manner.
 
-```
-python3 views.py
-```
-</ol>
-</li>
+How It Works
 
+The summarizer is built using the T5-small pretrained model from Hugging Face Transformers.
 
-</ol>
+Summary Generation Process:
+
+The book is divided into chapters.
+
+Each chapter is further split into smaller chunks for processing.
+
+The T5Tokenizer is used to tokenize the text.
+
+The tokenized text is fed into the T5ForConditionalGeneration model to generate summary tokens.
+
+The summary tokens are decoded into readable text using the decode() function from T5Tokenizer.
+
